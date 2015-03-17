@@ -2,12 +2,14 @@ package com.kotorreo.cam;
 
 import java.awt.image.BufferedImage;
 
-import com.jhlabs.image.ChannelMixFilter;
+import marvin.image.MarvinImage;
+import marvin.plugin.MarvinImagePlugin;
+import marvin.util.MarvinPluginLoader;
 
 /**
- * MixRed
+ * Optimize
  * 
- * MixRed Implementation of Filter
+ * Optimize Implementation of Filter
  * 
  * Copyright 2015 Jorge Alberto Ponce Turrubiates
  *
@@ -23,30 +25,31 @@ import com.jhlabs.image.ChannelMixFilter;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- * @category   MixRed
+ * @category   Optimize
  * @package    com.kotorreo.cam
  * @copyright  Copyright 2015 JAPT
  * @license    http://www.apache.org/licenses/LICENSE-2.0
  * @version    1.0.0, 2015-16-03
  * @author     <a href="mailto:the.yorch@gmail.com">Jorge Alberto Ponce Turrubiates</a>
  */
-public class MixRed extends Filter {
+public class Optimize extends Filter {
 
 	@Override
-	public BufferedImage process(BufferedImage img) {
-		return process(img, 1000);
+	public BufferedImage process(BufferedImage img) {		
+		MarvinImagePlugin imagePlugin = MarvinPluginLoader.loadImagePlugin("org.marvinproject.image.color.brightnessAndContrast.jar");
+		MarvinImage image = new MarvinImage(img);
+		
+		imagePlugin.setAttribute("bightness", 50);
+		imagePlugin.setAttribute("contrast", 50);
+		imagePlugin.process(image, image);
+		image.update();
+		
+		return image.getBufferedImage();
 	}
 
 	@Override
 	public BufferedImage process(BufferedImage img, int scale) {
-		ChannelMixFilter filter = new ChannelMixFilter();
-		filter.setIntoR(scale * 20);
-		
-		BufferedImage imgFilter = filter.filter(img, null);
-		
-		filter = null;
-		
-		return imgFilter;
+		return process(img);
 	}
 
 }

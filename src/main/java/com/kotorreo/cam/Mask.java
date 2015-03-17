@@ -2,12 +2,12 @@ package com.kotorreo.cam;
 
 import java.awt.image.BufferedImage;
 
-import com.jhlabs.image.ChannelMixFilter;
+import com.jhlabs.image.MaskFilter;
 
 /**
- * MixRed
+ * Mask
  * 
- * MixRed Implementation of Filter
+ * Mask Implementation of Filter
  * 
  * Copyright 2015 Jorge Alberto Ponce Turrubiates
  *
@@ -23,30 +23,28 @@ import com.jhlabs.image.ChannelMixFilter;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- * @category   MixRed
+ * @category   Mask
  * @package    com.kotorreo.cam
  * @copyright  Copyright 2015 JAPT
  * @license    http://www.apache.org/licenses/LICENSE-2.0
  * @version    1.0.0, 2015-16-03
  * @author     <a href="mailto:the.yorch@gmail.com">Jorge Alberto Ponce Turrubiates</a>
  */
-public class MixRed extends Filter {
+public class Mask extends Filter {
 
 	@Override
 	public BufferedImage process(BufferedImage img) {
-		return process(img, 1000);
-	}
-
-	@Override
-	public BufferedImage process(BufferedImage img, int scale) {
-		ChannelMixFilter filter = new ChannelMixFilter();
-		filter.setIntoR(scale * 20);
-		
+		MaskFilter filter = new MaskFilter();
 		BufferedImage imgFilter = filter.filter(img, null);
 		
 		filter = null;
 		
 		return imgFilter;
+	}
+
+	@Override
+	public BufferedImage process(BufferedImage img, int scale) {
+		return process(img);
 	}
 
 }

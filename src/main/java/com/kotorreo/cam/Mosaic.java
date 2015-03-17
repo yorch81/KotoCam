@@ -2,12 +2,14 @@ package com.kotorreo.cam;
 
 import java.awt.image.BufferedImage;
 
-import com.jhlabs.image.ChannelMixFilter;
+import marvin.image.MarvinImage;
+import marvin.plugin.MarvinImagePlugin;
+import marvin.util.MarvinPluginLoader;
 
 /**
- * MixRed
+ * Mosaic
  * 
- * MixRed Implementation of Filter
+ * Mosaic Implementation of Filter
  * 
  * Copyright 2015 Jorge Alberto Ponce Turrubiates
  *
@@ -23,30 +25,28 @@ import com.jhlabs.image.ChannelMixFilter;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- * @category   MixRed
+ * @category   Mosaic
  * @package    com.kotorreo.cam
  * @copyright  Copyright 2015 JAPT
  * @license    http://www.apache.org/licenses/LICENSE-2.0
  * @version    1.0.0, 2015-16-03
  * @author     <a href="mailto:the.yorch@gmail.com">Jorge Alberto Ponce Turrubiates</a>
  */
-public class MixRed extends Filter {
+public class Mosaic extends Filter {
 
 	@Override
 	public BufferedImage process(BufferedImage img) {
-		return process(img, 1000);
+		MarvinImagePlugin imagePlugin = MarvinPluginLoader.loadImagePlugin("org.marvinproject.image.artistic.mosaic.jar");
+		MarvinImage image = new MarvinImage(img);
+		imagePlugin.process(image, image);
+		image.update();
+		
+		return image.getBufferedImage();
 	}
 
 	@Override
 	public BufferedImage process(BufferedImage img, int scale) {
-		ChannelMixFilter filter = new ChannelMixFilter();
-		filter.setIntoR(scale * 20);
-		
-		BufferedImage imgFilter = filter.filter(img, null);
-		
-		filter = null;
-		
-		return imgFilter;
+		return process(img);
 	}
 
 }
