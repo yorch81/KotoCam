@@ -2,12 +2,13 @@ package com.kotorreo.cam;
 
 import java.awt.image.BufferedImage;
 
-import com.jhlabs.image.ChannelMixFilter;
+import com.jhlabs.image.GrayscaleFilter;
+import com.jhlabs.image.TritoneFilter;
 
 /**
- * MixRed
+ * Tritone
  * 
- * MixRed Implementation of Filter
+ * Tritone Implementation of Filter
  * 
  * Copyright 2015 Jorge Alberto Ponce Turrubiates
  *
@@ -23,14 +24,14 @@ import com.jhlabs.image.ChannelMixFilter;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- * @category   MixRed
+ * @category   Tritone
  * @package    com.kotorreo.cam
  * @copyright  Copyright 2015 JAPT
  * @license    http://www.apache.org/licenses/LICENSE-2.0
- * @version    1.0.0, 2015-16-03
+ * @version    1.0.0, 2015-17-03
  * @author     <a href="mailto:the.yorch@gmail.com">Jorge Alberto Ponce Turrubiates</a>
  */
-public class MixRed extends Filter {
+public class Tritone extends Filter {
 
 	@Override
 	public BufferedImage process(BufferedImage img) {
@@ -39,9 +40,8 @@ public class MixRed extends Filter {
 
 	@Override
 	public BufferedImage process(BufferedImage img, int scale) {
-		ChannelMixFilter filter = new ChannelMixFilter();
-		filter.setIntoR(scale * 20);
-		
+		TritoneFilter filter = new TritoneFilter();
+		filter.setHighColor(scale * 20);
 		BufferedImage imgFilter = filter.filter(img, null);
 		
 		filter = null;

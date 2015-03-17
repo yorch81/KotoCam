@@ -13,12 +13,17 @@ public class KotoCamApp {
 		System.out.println("Welcome to KotoCam");
 		
 		BufferedImage img = ImageIO.read(new File("/home/yorch/Downloads/test.jpg"));
-		Mask gray = new Mask();
-		img = gray.process(img, 50);
+		Filter gray = new Tritone();
+		img = gray.process(img, 30);
 		
-		File imgFile = new File("/home/yorch/Downloads/gray.jpg");
+		File imgFile = new File("/home/yorch/Downloads/kotocam.jpg");
+        
+        ImageIO.write(img, "jpg", imgFile);    
+        
+        img = gray.process(img, 95);
+		
+		imgFile = new File("/home/yorch/Downloads/kotocam2.jpg");
         
         ImageIO.write(img, "jpg", imgFile);
-        
 	}
 }

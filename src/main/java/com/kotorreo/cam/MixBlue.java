@@ -34,7 +34,7 @@ public class MixBlue extends Filter {
 
 	@Override
 	public BufferedImage process(BufferedImage img) {		
-		return process(img, 1000);
+		return process(img, 50);
 	}
 
 	@Override

@@ -1,13 +1,14 @@
 package com.kotorreo.cam;
 
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import com.jhlabs.image.ChannelMixFilter;
 
 /**
- * MixRed
+ * Crazy
  * 
- * MixRed Implementation of Filter
+ * Crazy Implementation of Filter
  * 
  * Copyright 2015 Jorge Alberto Ponce Turrubiates
  *
@@ -23,14 +24,14 @@ import com.jhlabs.image.ChannelMixFilter;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- * @category   MixRed
+ * @category   Crazy
  * @package    com.kotorreo.cam
  * @copyright  Copyright 2015 JAPT
  * @license    http://www.apache.org/licenses/LICENSE-2.0
- * @version    1.0.0, 2015-16-03
+ * @version    1.0.0, 2015-17-03
  * @author     <a href="mailto:the.yorch@gmail.com">Jorge Alberto Ponce Turrubiates</a>
  */
-public class MixRed extends Filter {
+public class Crazy extends Filter {
 
 	@Override
 	public BufferedImage process(BufferedImage img) {
@@ -40,7 +41,17 @@ public class MixRed extends Filter {
 	@Override
 	public BufferedImage process(BufferedImage img, int scale) {
 		ChannelMixFilter filter = new ChannelMixFilter();
-		filter.setIntoR(scale * 20);
+		Random rand = new Random();
+		
+		int seed = rand.nextInt(scale * 20);
+		
+		int blue = rand.nextInt(seed);
+		int green = rand.nextInt(seed);
+		int red = rand.nextInt(seed);
+		
+		filter.setIntoB(blue);
+		filter.setIntoG(green);
+		filter.setIntoR(red);
 		
 		BufferedImage imgFilter = filter.filter(img, null);
 		

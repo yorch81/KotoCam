@@ -39,8 +39,8 @@ public class Optimize extends Filter {
 		MarvinImagePlugin imagePlugin = MarvinPluginLoader.loadImagePlugin("org.marvinproject.image.color.brightnessAndContrast.jar");
 		MarvinImage image = new MarvinImage(img);
 		
-		imagePlugin.setAttribute("bightness", 50);
-		imagePlugin.setAttribute("contrast", 50);
+		imagePlugin.setAttribute("bightness", 40);
+		imagePlugin.setAttribute("contrast", 40);
 		imagePlugin.process(image, image);
 		image.update();
 		
