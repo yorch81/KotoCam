@@ -1,0 +1,8 @@
+*.class
+*.jar
+bin/
+target/
+marvin/
+*~
+.*.sw*
+kotocam.properties
