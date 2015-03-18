@@ -35,21 +35,21 @@ import marvin.util.MarvinPluginLoader;
 public class Optimize extends Filter {
 
 	@Override
-	public BufferedImage process(BufferedImage img) {		
-		MarvinImagePlugin imagePlugin = MarvinPluginLoader.loadImagePlugin("org.marvinproject.image.color.brightnessAndContrast.jar");
-		MarvinImage image = new MarvinImage(img);
-		
-		imagePlugin.setAttribute("bightness", 40);
-		imagePlugin.setAttribute("contrast", 40);
-		imagePlugin.process(image, image);
-		image.update();
-		
-		return image.getBufferedImage();
+	public BufferedImage process(BufferedImage img) {
+		return process(img, 50);
 	}
 
 	@Override
 	public BufferedImage process(BufferedImage img, int scale) {
-		return process(img);
+		MarvinImagePlugin imagePlugin = MarvinPluginLoader.loadImagePlugin("org.marvinproject.image.color.brightnessAndContrast.jar");
+		MarvinImage image = new MarvinImage(img);
+		
+		imagePlugin.setAttribute("bightness", scale / 2);
+		imagePlugin.setAttribute("contrast", scale / 2);
+		imagePlugin.process(image, image);
+		image.update();
+		
+		return image.getBufferedImage();
 	}
 
 }

@@ -2,7 +2,6 @@ package com.kotorreo.cam;
 
 import java.awt.image.BufferedImage;
 
-import com.jhlabs.image.GrayscaleFilter;
 import com.jhlabs.image.TritoneFilter;
 
 /**
