@@ -5,9 +5,9 @@ import java.awt.image.BufferedImage;
 import com.jhlabs.image.TritoneFilter;
 
 /**
- * Tritone
+ * Tritone<br>
  * 
- * Tritone Implementation of Filter
+ * Tritone Implementation of Filter<br><br>
  * 
  * Copyright 2015 Jorge Alberto Ponce Turrubiates
  *
@@ -23,10 +23,6 @@ import com.jhlabs.image.TritoneFilter;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- * @category   Tritone
- * @package    com.kotorreo.cam
- * @copyright  Copyright 2015 JAPT
- * @license    http://www.apache.org/licenses/LICENSE-2.0
  * @version    1.0.0, 2015-17-03
  * @author     <a href="mailto:the.yorch@gmail.com">Jorge Alberto Ponce Turrubiates</a>
  */

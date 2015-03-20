@@ -6,9 +6,9 @@ import java.util.Random;
 import com.jhlabs.image.ChannelMixFilter;
 
 /**
- * Crazy
+ * Crazy<br>
  * 
- * Crazy Implementation of Filter
+ * Crazy Implementation of Filter<br><br>
  * 
  * Copyright 2015 Jorge Alberto Ponce Turrubiates
  *
@@ -24,10 +24,6 @@ import com.jhlabs.image.ChannelMixFilter;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- * @category   Crazy
- * @package    com.kotorreo.cam
- * @copyright  Copyright 2015 JAPT
- * @license    http://www.apache.org/licenses/LICENSE-2.0
  * @version    1.0.0, 2015-17-03
  * @author     <a href="mailto:the.yorch@gmail.com">Jorge Alberto Ponce Turrubiates</a>
  */

@@ -5,9 +5,9 @@ import java.awt.image.BufferedImage;
 import com.jhlabs.image.GrayscaleFilter;
 
 /**
- * Gray
+ * Gray<br>
  * 
- * Scale Gray Implementation of Filter
+ * Scale Gray Implementation of Filter<br><br>
  * 
  * Copyright 2015 Jorge Alberto Ponce Turrubiates
  *
@@ -23,10 +23,6 @@ import com.jhlabs.image.GrayscaleFilter;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- * @category   Gray
- * @package    com.kotorreo.cam
- * @copyright  Copyright 2015 JAPT
- * @license    http://www.apache.org/licenses/LICENSE-2.0
  * @version    1.0.0, 2015-16-03
  * @author     <a href="mailto:the.yorch@gmail.com">Jorge Alberto Ponce Turrubiates</a>
  */
