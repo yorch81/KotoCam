@@ -32,6 +32,9 @@ import junit.framework.TestCase;
  */
 public class KotoTest extends TestCase {
 
+	/**
+	 * Image to Apply Filter
+	 */
 	BufferedImage img;
 	
 	/**

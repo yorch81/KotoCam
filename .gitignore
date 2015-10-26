@@ -5,4 +5,5 @@ target/
 marvin/
 *~
 .*.sw*
+*.log
 kotocam.properties

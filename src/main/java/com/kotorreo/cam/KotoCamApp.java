@@ -6,6 +6,11 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import org.apache.log4j.FileAppender;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PatternLayout;
+
 /**
  * KotoCamApp<br>
  * 
@@ -34,6 +39,17 @@ public class KotoCamApp {
 		// TODO Auto-generated method stub
 		System.out.println("Welcome to KotoCam");
 		
+		// Configure Log file
+		LogConfig.configure("kotocam.log");
+ 
+        // creates a custom logger and log messages
+        Logger logger = Logger.getLogger(KotoCamApp.class);
+        logger.info("Welcome to KotoCam");
+        
+		SaveCl cl =  new SaveCl();
+		System.out.println(cl.getId());
+		
+		/*
 		BufferedImage img = ImageIO.read(new File("/home/yorch/Downloads/test.jpg"));
 		
 		KotoFilter kotoFilter = new KotoFilter("Optimize");
@@ -43,5 +59,6 @@ public class KotoCamApp {
 		File imgFile = new File("/home/yorch/Downloads/kotocam.jpg");
         
         ImageIO.write(img, "jpg", imgFile);
+        */
 	}
 }
