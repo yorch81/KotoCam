@@ -46,10 +46,7 @@ public class KotoCamApp {
         Logger logger = Logger.getLogger(KotoCamApp.class);
         logger.info("Welcome to KotoCam");
         
-		SaveCl cl =  new SaveCl();
-		System.out.println(cl.getId());
-		
-		/*
+	
 		BufferedImage img = ImageIO.read(new File("/home/yorch/Downloads/test.jpg"));
 		
 		KotoFilter kotoFilter = new KotoFilter("Optimize");
@@ -59,6 +56,5 @@ public class KotoCamApp {
 		File imgFile = new File("/home/yorch/Downloads/kotocam.jpg");
         
         ImageIO.write(img, "jpg", imgFile);
-        */
 	}
 }

@@ -36,19 +36,19 @@ public class LogConfig {
 	 */
 	public static void configure(String logFile){
 		// Define Layout
-        PatternLayout layout = new PatternLayout();
-        String conversionPattern = "%-7p %d [%t] %c %x - %m%n";
-        layout.setConversionPattern(conversionPattern);
+		PatternLayout layout = new PatternLayout();
+		String conversionPattern = "%-7p %d [%t] %c %x - %m%n";
+		layout.setConversionPattern(conversionPattern);
  
-        // Create Log file
-        FileAppender fileAppender = new FileAppender();
-        fileAppender.setFile(logFile);
-        fileAppender.setLayout(layout);
-        fileAppender.activateOptions();
+		// Create Log file
+		FileAppender fileAppender = new FileAppender();
+		fileAppender.setFile(logFile);
+		fileAppender.setLayout(layout);
+		fileAppender.activateOptions();
  
-        // Configure RootLogger
-        Logger rootLogger = Logger.getRootLogger();
-        rootLogger.setLevel(Level.DEBUG);
-        rootLogger.addAppender(fileAppender);
+		// Configure RootLogger
+		Logger rootLogger = Logger.getRootLogger();
+		rootLogger.setLevel(Level.DEBUG);
+		rootLogger.addAppender(fileAppender);
 	}
 }
