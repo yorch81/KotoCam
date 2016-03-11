@@ -28,6 +28,12 @@ import com.jhlabs.image.MaskFilter;
  */
 public class Mask extends Filter {
 
+	/**
+	 * Apply Filter to BufferedImage
+	 * 
+	 * @param img BufferedImage Original Image
+	 * @return BufferedImage Processed Image
+	 */
 	@Override
 	public BufferedImage process(BufferedImage img) {
 		MaskFilter filter = new MaskFilter();
@@ -38,6 +44,13 @@ public class Mask extends Filter {
 		return imgFilter;
 	}
 
+	/**
+	 * Apply Filter to BufferedImage with Scale Percent
+	 * 
+	 * @param img BufferedImage Original Image
+	 * @param scale int Percent 0 to 100
+	 * @return BufferedImage Processed Image
+	 */
 	@Override
 	public BufferedImage process(BufferedImage img, int scale) {
 		return process(img);

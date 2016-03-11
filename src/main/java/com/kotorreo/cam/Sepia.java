@@ -30,6 +30,12 @@ import marvin.util.MarvinPluginLoader;
  */
 public class Sepia extends Filter {
 	
+	/**
+	 * Apply Filter to BufferedImage
+	 * 
+	 * @param img BufferedImage Original Image
+	 * @return BufferedImage Processed Image
+	 */
 	@Override
 	public BufferedImage process(BufferedImage img) {
 		MarvinImagePlugin imagePlugin = MarvinPluginLoader.loadImagePlugin("org.marvinproject.image.color.sepia.jar");
@@ -40,6 +46,13 @@ public class Sepia extends Filter {
 		return image.getBufferedImage();
 	}
 
+	/**
+	 * Apply Filter to BufferedImage with Scale Percent
+	 * 
+	 * @param img BufferedImage Original Image
+	 * @param scale int Percent 0 to 100
+	 * @return BufferedImage Processed Image
+	 */
 	@Override
 	public BufferedImage process(BufferedImage img, int scale) {
 		return process(img);

@@ -41,42 +41,55 @@ public class KotoTest extends TestCase {
 	 * Constructor Class
 	 */
 	public KotoTest() {
-		try {
-			img = ImageIO.read(new File("/home/yorch/tmp/mory.jpg"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			img = null;
-		}
 	}
 	
 	/**
-	 * Test for Filter Image
+	 * Test for All Filters Image
 	 */
-	public void testFilter() {
+	public void testFilters() {
 		boolean assertValue = false;
+				
+		String[] filters = KotoFilter.getFilters();
 		
-		if (img == null)
-			assertTrue( false );
+		BufferedImage imgTmp;
+		KotoFilter kotoFilter;
 		
-		KotoFilter kotoFilter = new KotoFilter("Crazy");
-        
-		img = kotoFilter.process(img, 80);
+		for (int i = 0; i<filters.length; i++) {
+			try {
+				img = ImageIO.read(new File("/home/yorch/tmp/mory.jpg"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			
-		File imgFile = new File("/home/yorch/tmp/kotomory.jpg");
-        
-        try {
-			ImageIO.write(img, "jpg", imgFile);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			if (img == null)
+				assertTrue(false);
+			
+			kotoFilter = new KotoFilter(filters[i]);
+			imgTmp = kotoFilter.process(img, 70);
+			
+			String fileName = "/home/yorch/tmp/" + filters[i] + "_mory.jpg";
+			
+			File imgFile = new File(fileName);
+	        
+	        try {
+				ImageIO.write(imgTmp, "jpg", imgFile);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+	        
+	        assertValue = imgFile.exists();
+	        
+	        // Delete image
+	        if (assertValue)
+	        	imgFile.delete();
+	        
+	        if (! assertValue)
+	        	assertTrue(false);
+	        
+	        imgTmp = null;
+	        img = null;
 		}
-                
-        assertValue = imgFile.exists();
-        
-        if (assertValue)
-        	imgFile.delete();
-        
-		assertTrue( assertValue );
+		
+		assertTrue(assertValue);
 	}
 }

@@ -6,10 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import org.apache.log4j.FileAppender;
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.apache.log4j.PatternLayout;
 
 /**
  * KotoCamApp<br>
@@ -46,15 +43,34 @@ public class KotoCamApp {
         Logger logger = Logger.getLogger(KotoCamApp.class);
         logger.info("Welcome to KotoCam");
         
-	
-		BufferedImage img = ImageIO.read(new File("/home/yorch/Downloads/test.jpg"));
+		BufferedImage img;
 		
-		KotoFilter kotoFilter = new KotoFilter("Optimize");
-        
-		img = kotoFilter.process(img, 90);
+		String[] filters = KotoFilter.getFilters();
+		
+		BufferedImage imgTmp;
+		KotoFilter kotoFilter;
+		
+		for (int i = 0; i<filters.length; i++) {
+			img = ImageIO.read(new File("/home/yorch/tmp/mory.jpg"));
 			
-		File imgFile = new File("/home/yorch/Downloads/kotocam.jpg");
-        
-        ImageIO.write(img, "jpg", imgFile);
+			System.out.println("Apply " + filters[i]);
+			
+			kotoFilter = new KotoFilter(filters[i]);
+			imgTmp = kotoFilter.process(img, 70);
+			
+			String fileName = "/home/yorch/tmp/" + filters[i] + "_mory.jpg";
+			
+			File imgFile = new File(fileName);
+	        
+	        try {
+				ImageIO.write(imgTmp, "jpg", imgFile);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+	        
+	        imgTmp = null;
+	        img = null;
+	        kotoFilter = null;
+		}
 	}
 }

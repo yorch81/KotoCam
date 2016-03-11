@@ -26,7 +26,15 @@ import java.awt.image.BufferedImage;
  */
 public class KotoFilter {
 
+	/**
+	 * Filter
+	 */
 	Filter _filter = null;
+
+	/**
+	 * Array Filters
+	 */
+	private static String[] aFilters = {"BlackWhite", "Crazy", "Gray", "Invert", "Mask", "MixBlue", "MixGreen", "MixRed", "Mosaic", "Optimize", "Sepia", "Solarize", "Tele", "Tritone"};
 	
 	/**
 	 * Constructor of Class
@@ -72,5 +80,14 @@ public class KotoFilter {
 			return _filter.process(img, scale);
 		else
 			return null;
+	}
+	
+	/**
+	 * Get Array of Filters
+	 * 
+	 * @return String[] Filters Array
+	 */
+	public static String[] getFilters() {
+		return aFilters;
 	}
 }

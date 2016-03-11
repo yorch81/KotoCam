@@ -30,11 +30,24 @@ import marvin.util.MarvinPluginLoader;
  */
 public class Optimize extends Filter {
 
+	/**
+	 * Apply Filter to BufferedImage
+	 * 
+	 * @param img BufferedImage Original Image
+	 * @return BufferedImage Processed Image
+	 */
 	@Override
 	public BufferedImage process(BufferedImage img) {
 		return process(img, 50);
 	}
 
+	/**
+	 * Apply Filter to BufferedImage with Scale Percent
+	 * 
+	 * @param img BufferedImage Original Image
+	 * @param scale int Percent 0 to 100
+	 * @return BufferedImage Processed Image
+	 */
 	@Override
 	public BufferedImage process(BufferedImage img, int scale) {
 		MarvinImagePlugin imagePlugin = MarvinPluginLoader.loadImagePlugin("org.marvinproject.image.color.brightnessAndContrast.jar");
