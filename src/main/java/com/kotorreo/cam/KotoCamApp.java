@@ -51,14 +51,14 @@ public class KotoCamApp {
 		KotoFilter kotoFilter;
 		
 		for (int i = 0; i<filters.length; i++) {
-			img = ImageIO.read(new File("/home/yorch/tmp/mory.jpg"));
+			img = ImageIO.read(new File("C:/CODE/img/mory.jpg"));
 			
 			System.out.println("Apply " + filters[i]);
 			
 			kotoFilter = new KotoFilter(filters[i]);
 			imgTmp = kotoFilter.process(img, 70);
 			
-			String fileName = "/home/yorch/tmp/" + filters[i] + "_mory.jpg";
+			String fileName = "C:/CODE/img/" + filters[i] + "_mory.jpg";
 			
 			File imgFile = new File(fileName);
 	        
